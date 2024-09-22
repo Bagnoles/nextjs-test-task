@@ -1,3 +1,14 @@
 .container {
-    width: 70%;
+    width: 1200px;
+}
+.slide {
+    width: 400px;
+    margin: 0 15px;
+}
+
+.image {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
 }
