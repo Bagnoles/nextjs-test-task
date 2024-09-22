@@ -6,6 +6,14 @@ import { useParams } from 'next/navigation';
 import NotFound from '../not-found';
 import styles from './page.module.css';
 
+// export async function generateStaticParams() {
+//   const news = useAppSelector(getNews);
+ 
+//   return news.map((item) => ({
+//     id: item.id,
+//   }))
+// }
+
 export default function ImageInfo() {
   const { id } = useParams();
   const newsInfo = useAppSelector(getNews).find((item) => item.id === +id);
