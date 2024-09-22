@@ -2,25 +2,23 @@
 import { useAppSelector } from '@/lib/hooks';
 import { getNews } from '@/lib/news/news-selectors';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 import NotFound from '../not-found';
 import styles from './page.module.css';
-
-// export async function generateStaticParams() {
-//   const news = useAppSelector(getNews);
- 
-//   return news.map((item) => ({
-//     id: item.id,
-//   }))
-// }
+import { useSearchParams } from 'next/navigation';
 
 export default function ImageInfo() {
-  const { id } = useParams();
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
+
+  if (!id) {
+    return <NotFound />
+  }
   const newsInfo = useAppSelector(getNews).find((item) => item.id === +id);
 
   if (!newsInfo) {
     return <NotFound />
   }
+  
   const {image_url, summary, title} = newsInfo;
 
   return (

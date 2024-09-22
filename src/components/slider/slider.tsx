@@ -31,7 +31,7 @@ export default function Slider({data}: SliderProps) {
             >
                 {data.map((item) => (
                     <SwiperSlide key={item.id} className={styles.slide}>
-                        <Link href={`/${item.id}`}>
+                        <Link href={`/news?id=${item.id}`}>
                             <img src={item.image_url} alt={item.title} className={styles.image} />
                             <p>{item.title}</p>
                         </Link>
